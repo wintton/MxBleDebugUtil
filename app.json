@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/main/main",
+    "pages/selble/selble",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/aboutus/aboutus",
+    "pages/advice/advice",
+    "pages/numberturn/numberturn",
+    "pages/timeturn/timeturn",
+    "pages/codeturn/codeturn",
+    "pages/MD5/MD5"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "小梦调试助手",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

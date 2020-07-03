@@ -1,0 +1,18 @@
+/* pages/numberturn/numberturn.wxss */
+.advice_tear{
+  width: 80vw;
+  padding: 5vw; 
+  margin-top: 5vw;
+  border-radius: 10px;
+  background: #fff;
+  height: 20vh;
+  font-size: 90%;
+}
+
+input{
+  width: 80vw;
+  margin-top: 5vw;
+  padding: 2vw 5vw; 
+  border-radius: 10px;
+  background: #fff;
+}

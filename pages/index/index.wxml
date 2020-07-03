@@ -1,0 +1,69 @@
+ <!-- 协议内容 -->
+ <view catchtap="doHidenDiaolog" hidden="{{!isShowDialog}}" class="dialog_view_back flex_column flex_center">
+ 	<!-- 协议弹窗 -->
+ 	<view catchtap="donothing" class="dialog_cneter_view flex_column">
+ 		<!-- 标题 -->
+ 		<view class="dialog_title_view text_center">{{title}}</view>
+ 		<!-- 内容 -->
+ 		<scroll-view scroll-y class="dialog_content_view">
+ 			<view class="flex_column">
+ 				<view class="flex_column" wx:for="{{servicelist}}" wx:key="index">
+ 					<view bindtap="changeOpen" style="padding:4vw 0;border-bottom:1px solid #CCC" data-index="{{index}}" class="flex_row flex_vcenter flex_space">
+ 						<text class="dialog_text">{{item.uuid}}</text>
+ 						<text  hidden="{{item.open}}">▼</text>
+ 						<text  hidden="{{!item.open}}">▲</text>
+ 					</view>
+ 					<view catchtap="doSelUuid" data-item="{{item}}" data-each="{{each}}" class="flex_column flex_wrap flex_vcenter" style="padding:4vw 0;border-bottom:1px solid #CCC;border-top:1px solid #CCC" hidden="{{!item.open}}" wx:for="{{item.characteristics}}" wx:for-item="each" wx:key="keys">
+ 						<text class="dialog_text">{{each.uuid}}</text>
+ 						<view class="flex_row flex_vcenter">
+ 							<text  class="dialog_text">{{each.properties.notify?"可通知/":""}}</text>
+ 							<text  class="dialog_text">{{each.properties.write?"可写/":""}}</text>
+ 							<text  class="dialog_text">{{each.properties.read?"可读/":""}}</text>
+ 						</view>
+ 					</view>
+ 				</view>
+ 			</view>
+ 		</scroll-view>
+ 	</view>
+ </view>
+ <view class='item_view_back felx_column flex_end'>
+ 	<view bindtap='selBle' class='flex_row flex_vcenter'>
+ 		<view class='item_title_name'>{{statusinfo.status}}</view>
+ 		<image mode='aspectFit' class='item_img' src='/images/ic_ble.png'></image>
+ 	</view>
+ </view>
+
+ <view class="flex_row flex_space flex_vcenter" style="margin:5vw;">
+ 	<button bindtap="doShowSelService" data-type="write" class="btn_normal" style="width:48%">选择写服务</button>
+ 	<button bindtap="doShowSelService" data-type="reno" class="btn_normal" style="width:48%">选择读/通知服务</button>
+ </view>
+
+ <view class="flex_column"  style="margin:5vw;">
+  <text class="dialog_text">当前写服务:{{write_id}}</text>
+  <text class="dialog_text">当前读/通知服务：{{notifty_id}}</text>
+ </view>
+
+ <view class="send_back">
+ 	<checkbox-group bindchange="checkboxChange">
+ 		<view wx:for="{{menu}}" wx:key="index" style="padding:3vw 0" class="flex_row flex_vcenter flex_space">
+ 			<checkbox value="{{index}}" disabled="{{isRund}}"  checked="{{item.issel}}"></checkbox>
+ 			<input placeholder="输入发送内容" disabled="{{isRund}}" bindinput="doGetInput" data-index="{{index}}" style="width:50vw;border-bottom:1px solid #CCC"></input>
+ 			<button bindtap="doSendValue" disabled="{{isRund}}"  data-index="{{index}}" class="btn_normal" style="width:25vw; ">发送</button>
+ 		</view>
+ 	</checkbox-group>
+ 	<view style="padding:3vw 0" class="flex_row flex_vcenter flex_space">
+ 		<input bindinput="doGetSendTimes" type="number" style="width:50vw;border-bottom:1px solid #CCC" placeholder="每次发送延时(毫秒)"></input>
+ 		<button bindtap="doRund" class="btn_normal" style="width:30vw; ">{{isRund?"停止循环":"循环发送"}}</button>
+ 	</view>
+ </view>
+ <view class="flex_row flex_vcenter" style="margin-top:3vw;">
+ 	<button bindtap="doClearData" class="btn_normal" style="width:30vw; ">清除数据</button>
+ 	<button bindtap="doReadValue" class="btn_normal" style="width:30vw; ">读取数据</button>
+ </view>
+ <scroll-view scroll-y class="send_back" style="height:30vh;" scroll-into-view="{{lastindex}}" >
+ 	<view class="flex_column">
+ 		<text id="item{{index}}"  wx:for="{{logs}}" wx:key="index" style="font-size:80%;color:#000;">{{item}}</text>
+ 	</view>
+ </scroll-view>
+
+ <view style="width:100vw;height:5vh;"></view>

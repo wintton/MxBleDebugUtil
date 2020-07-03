@@ -1,0 +1,237 @@
+/* pages/uploadimg/uploadimg.wxss */
+.main_view_back {
+  width: 100vw;
+}
+
+.item_view_back {
+  width: 90vw;
+  margin-left: 5vw;
+  margin-top: 1vw;
+
+}
+
+.item_img {
+  width: 5vw;
+  height: 5vw;
+}
+
+.item_title_name {
+  color: #000;
+  font-size: 90%;
+}
+
+.item_title {
+  width: 100%;
+  margin-top: 2vw;
+}
+
+.img_back_class {
+  width: 100%;
+  height: 81%;
+  margin-top: 2vw;
+}
+
+.img_size {
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+}
+
+.border_blue {
+  border: 1px dashed rgba(0, 120, 253, 1);
+}
+
+.border_white {
+  border: 1px dashed white;
+}
+
+.small_img_size {
+  width: 5vw;
+  height: 5vw;
+}
+
+.blue_text {
+  color: #1A8DFF;
+  font-size: 90%;
+}
+
+.btn_disable {
+  width: 90%;
+  margin-left: 5%;
+  color: white;
+  font-size: 80%;
+  background: linear-gradient(180deg, rgba(189, 189, 189, 1) 0%, rgba(102, 102, 102, 1) 100%, rgba(204, 204, 204, 1) 100%);
+  border-radius: 10px;
+}
+
+.btn_normal {
+  width: 92%;
+  font-size: 80%;
+  color: white; 
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 112, 191, 1) 0%, rgba(69, 178, 255, 1) 0%, rgba(0, 126, 255, 1) 100%);
+  border-radius: 10px;
+}
+
+.btn_normal:active {
+  width: 92%;
+  font-size: 80%;
+  color: white; 
+  background: rgba(0, 126, 255, 1);
+  border-radius: 10px;
+}
+
+.item_title_back_class {
+  width: 87%;
+  margin-left: 5%;
+}
+
+.selimg_list {
+  width: 94vw;
+  margin: 3vw 0;
+}
+
+.sma_img_size {
+  width: 15vw;
+  height: 15vw;
+  margin-left: 3vw;
+  border-radius: 50%;
+}
+
+.btn_class,
+.btn_class:active {
+  width: 90vw;
+  margin-top: 10px;
+  margin-left: 5vw;
+  font-size: 90%;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.btn_class {
+  background: rgb(51, 225, 231);
+}
+
+.btn_class:active {
+  background: rgb(51, 225, 231);
+}
+
+.send_back {
+  width: 84vw;
+  margin-left: 5vw;
+  margin-top: 3vw;
+  background: #FFF;
+  padding: 3vw;
+  border-radius: 5px;
+}
+
+
+
+.dialog_close {
+  font-size: 100%;
+  width: 100vw;
+  height: 15vw;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  background: #fff;
+  text-align: center;
+  color: rgba(0, 0, 0, 1);
+  box-shadow:0px -2px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.dialog_top {
+  width: 80%;
+  padding: 3% 10%;
+  background: rgba(248, 248, 248, 1);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.dialog_devname {
+  font-size: 110%;
+  font-family: PingFangSC-Heavy;
+  font-weight: 800;
+  color: rgba(0, 0, 0, 1);
+}
+
+.dialog_mac {
+  font-size: 90%;
+  margin-top: 2%;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+}
+
+.dialog_menu { 
+  padding: 5%;
+  width: 90%;
+  background: #fff;
+  box-shadow:0px -2px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.dialog_red_text, .dialog_green_text {
+  font-size: 80%;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  border-radius: 5px;
+  color: #fff;
+  padding: 1px 2%;
+  max-height: 6vw; 
+  min-width: 16vw;
+}
+ 
+
+.dialog_red_text {
+  background: rgba(238, 68, 42, 1);
+}
+
+.dialog_green_text {
+  background: rgba(33, 167, 130, 1);
+}
+
+.small_text{
+  font-size: 100%;
+  color: #000;
+}
+
+.dialog_view_back{
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  position: fixed;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.dialog_cneter_view{
+  width: 80vw;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.dialog_title_view{
+  width: 100%;
+  padding: 3% 0%;
+  background: linear-gradient(0deg, rgb(19, 138, 207) 0%, rgb(46, 164, 231) 100%);
+  border-radius: 10px 10px 0 0;
+  color: #fff;
+  font-size: 90%;
+}
+
+.dialog_content_view{
+  width: 90%;
+  padding: 5%;
+  height: 50vh;
+  color: #000;
+  font-size: 80%;
+}
+
+.dialog_text{
+  font-size:90%;
+  color:#000;
+}
+
+::-webkit-scrollbar { 
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
+}

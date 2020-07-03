@@ -1,0 +1,7 @@
+<!--pages/main/main.wxml-->
+<view class="flex_row flex_wrap" style="padding:5vw;width:90vw">
+  <view bindtap="doOpenMenu" data-item="{{item}}" wx:for="{{menu}}" wx:key="index" class="flex_column flex_center" style="margin-top:5vw;margin-left:5vw"> 
+    <image src="{{item.img}}" style="width:12vw;height:12vw;" mode="aspectFit"></image>
+    <view style="font-size:80%;color:#000;margin-top:3vw;">{{item.name}}</view>
+  </view>
+</view>

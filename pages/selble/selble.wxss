@@ -1,0 +1,43 @@
+/* pages/selble/selble.wxss */
+.item_class{
+  width: 94vw;
+  padding: 3vw 3vw 0vw 3vw;
+  background: #fff;
+}
+.ble_img{
+  width: 7vw;
+  height: 7vw;
+}
+.item_name_text{ 
+  margin-left: 5px;
+  font-size:90%;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+}
+.item_sel_img{
+  width: 5vw;
+  height: 5vw; 
+}
+.line{
+  margin-top:3vw;
+  width: 100%;
+  height: 1px;
+  background: #E4E4E4;
+
+}
+.bottom_fix_show{
+  width:90vw;
+  padding: 4vw 5vw;
+  position: fixed;
+  bottom: 0;
+  background: #fff; 
+}
+.bottom_text{ 
+  display: flex;
+  font-size:90%;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(12,135,255,1);
+}
+

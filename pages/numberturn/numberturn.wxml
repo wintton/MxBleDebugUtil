@@ -1,0 +1,8 @@
+<!--pages/numberturn/numberturn.wxml-->
+<view class="flex_column flex_center" style="font-size:80%;">
+  <input  bindinput="doGetValue" placeholder="请输入数字"></input>
+  <textarea class="advice_tear" value="{{number1}}" placeholder="等待输入显示结果" disabled></textarea>  
+  <textarea class="advice_tear" value="{{number2}}" placeholder="等待输入显示结果" disabled></textarea>  
+  <image bindtap="doCopyNumber" data-value="{{number1}}" src="/images/ic_copy.png" style="width:6vw;height:6vw;position:absolute;right:9%;top:32%" mode="aspectFit"></image>
+  <image bindtap="doCopyNumber" data-value="{{number2}}" src="/images/ic_copy.png" style="width:6vw;height:6vw;position:absolute;right:9%;top:60%" mode="aspectFit"></image>
+</view>

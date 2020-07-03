@@ -1,0 +1,6 @@
+<!--pages/advice/advice.wxml-->
+<form bindsubmit="doSubmit"> 
+		<textarea name="content" class='advice_tear' placeholder='请输入您宝贵的建议'></textarea>
+
+		<button form-type="submit" class='btn_normal' style='margin-top:15vw;'>提交</button> 
+</form>

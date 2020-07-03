@@ -1,0 +1,11 @@
+<!--pages/timeturn/timeturn.wxml-->
+ <view class="send_back flex_column flex_center"> 
+    <input disabled value="{{curtimes}}" class="input_class"></input>
+ 		<view style="padding:3vw 0;width:84vw" class="flex_row flex_vcenter flex_space">
+ 		 	<button bindtap="doStart" class="btn_normal" style="width:25vw; ">开始</button>
+      <button bindtap="doStop" class="btn_normal" style="width:25vw; ">停止</button>
+ 			<button bindtap="doCopy" class="btn_normal" style="width:25vw; ">复制</button>
+ 		</view>  
+    <input bindinput="doGetInput" type="number"  value="{{turntimes}}" class="input_class" placeholder="请输入时间戳"></input>
+    <input bindinput="doGetInputDate"   value="{{turndate}}" class="input_class" placeholder="请输入时间 格式 2020/05/20 00:00"></input>
+ </view>

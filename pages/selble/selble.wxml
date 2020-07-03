@@ -1,0 +1,27 @@
+<!--pages/selble/selble.wxml-->
+<view style="width:100vw;height:3vw"></view>
+<view bindtap='selItem' data-item='{{item}}'  class="item_class flex_column flex_space" wx:for="{{deviceslist}}" wx:key="lkeys">
+  <view class="flex_row flex_space flex_vcenter">
+    <view class="flex_row flex_vcenter">
+      <image mode="aspectFit" class="ble_img" src="/images/ic_ble.png"></image>
+      <text class="item_name_text">{{item.name || "未知设备"}}({{item.deviceId}})</text>
+    </view>
+    <image hidden="{{selmac == item.deviceId}}" mode="aspectFit" class="item_sel_img" src="/images/ic_unsel.png"></image>
+    <image hidden="{{selmac != item.deviceId}}" mode="aspectFit" class="item_sel_img" src="/images/ic_sel.png"></image>
+  </view>
+  <view class="flex_row flex_space flex_vcenter flex_wrap" style="margin-top:3vw;">
+       <text class="item_name_text">信号值：{{item.RSSI || "0"}}</text>
+  </view>
+  <view class="flex_row flex_space flex_vcenter flex_wrap" style="margin-top:3vw;">
+       <text class="item_name_text">广播包数据：{{item.advertisData || ""}}</text>
+  </view>
+  <view class="line"></view>
+</view>
+
+<view class="bottom_fix_show flex_row flex_space flex_vcenter">
+  <text bindtap='refresh' class='bottom_text'>刷新</text> 
+  <button hidden="{{selmac != ''}}" class="btn_disable">连接</button>
+  <button bindtap='doback' hidden="{{selmac == ''}}" class="btn_normal">连接</button>
+</view>
+
+<view style="width:100vw;height:10vh;"></view>

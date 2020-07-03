@@ -1,0 +1,13 @@
+<!-- 主界面 -->
+<view class='view_back'>
+  <view class='show_code_back flex_column flex_center'>
+    <image mode='aspectFill' src='/images/ic_logo.jpg' class='show_code_img'></image>
+    <text class='show_code_name'>{{version.code}}</text> 
+  </view> 
+  <view class='title_class'>梦辛工作室——专业的软件设计、开发团队</view>
+  <view class='center_class text_center' style='margin-top:2vw'>\n我们一直努力创新</view>
+  <text class='content_class' space='ensp'>\n  小梦调试助手是由梦辛工作室为开发人员提供一套调试助手，后期会增加蓝牙调试功能，网络TCP、UDP等调试功能，当然在打造过程中，会有些不仅人意的地方，所以就希望大家多给我们反馈反馈，我们会为您贡上最完美的产品，为您解决更多的问题,可以在淘宝上找到我们，也可以通过搜索微信公众号哦，小梦在这里祝您生活愉快。</text> 
+   <view class='show_code_back flex_column flex_center'>
+  <image mode='aspectFill' src='/images/ic_file.jpg' style="width:50vw;height:50vw;margin-bottom:10vh" ></image> 
+  </view> 
+</view>

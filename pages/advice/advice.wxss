@@ -1,0 +1,12 @@
+/* pages/advice/advice.wxss */
+
+.advice_tear{
+  width: 80vw;
+  padding: 5vw;
+  margin-left: 5vw;
+  margin-top: 5vw;
+  border-radius: 10px;
+  background: #fff;
+  height: 30vh;
+  font-size: 90%;
+}

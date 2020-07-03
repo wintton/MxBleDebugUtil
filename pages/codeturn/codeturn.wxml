@@ -1,0 +1,17 @@
+<!--pages/codeturn/codeturn.wxml-->
+<view class="send_back flex_column flex_center">
+	<view class="input_class flex_row flex_space">
+		<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="name">
+			<text>{{array[index].name}}</text>
+			<text style="margin-left:58vw">▼</text>
+		</picker>
+	</view>
+	<input bindinput="doGetInput"   value="{{needturn}}" class="input_class" placeholder="请输入需要转换的值"></input>
+	<view class="input_class flex_row flex_space">
+		<picker bindchange="bindPickerChangeO" value="{{oindex}}" range="{{array}}" range-key="name"> 
+			<text>{{array[oindex].name}}</text>
+		  <text style="margin-left:58vw">▼</text>
+		</picker>
+	</view>
+	<textarea disabled  value="{{turnvalue}}" class="input_class"  style="height:20vh" placeholder="转换后的值"></textarea>
+</view>

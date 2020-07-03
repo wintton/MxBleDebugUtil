@@ -1,0 +1,62 @@
+/* pages/aboutus/aboutus.wxss */
+
+.show_code_back {
+  width: 100vw;
+  margin-top: 20vw;
+}
+
+.show_code_img {
+  width: 40vw;
+  height: 40vw;
+  border-radius: 50%;
+}
+
+.show_code_name {
+  color: #000;
+  font-size: 120%;
+  font-family: PingFangSC-Heavy;
+  font-weight: 800;
+  margin-top: 20px; 
+}
+
+.show_code_hint {
+  font-size: 90%;
+  margin-top: 5px;
+  font-family: PingFangSC-Heavy;
+  font-weight: 800;
+  color: rgba(204, 204, 204, 1);
+}
+
+.bottom_view_class { 
+  margin-top: 70%;
+}
+
+.bottom_hint_text {
+  font-size: 80%;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(194, 192, 192, 1);
+}
+
+.view_back{
+  margin: 2vw;
+}
+
+.title_class{
+  font-size: 100%;
+  margin-top: 20vw;
+  color: #000;
+  font-weight: 600;
+}
+.center_class{
+  margin-top: 2vw;
+  font-size: 90%;
+  color: #000;
+  font-weight: 600;
+}
+
+.content_class{
+  margin-top: 2vw;
+  font-size: 90%;
+  color: #000; 
+}
