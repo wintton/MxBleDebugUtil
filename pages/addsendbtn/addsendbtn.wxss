@@ -1,0 +1,148 @@
+/* pages/addsendbtn/addsendbtn.wxss */
+@import "../index/index.wxss";
+
+.value_back {
+  width: 84vw;
+  padding: 2vw 0;
+  font-size: 80%;
+  color: #000; 
+  border-bottom: 1px solid #CCC;
+}
+
+.hint_title {
+  padding: 2vw 0;
+  font-size: 90%;
+  color: #000;
+  font-weight: 600;
+} 
+
+.add_image{
+  width: 20vw;
+  height: 20vw;
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+}
+
+.item_view{
+  width: 90vw;
+  padding:5vw;
+  background: #fff;
+  margin-top: 1px;
+}
+
+.opera_sel_view_back{ 
+  width: 100%; 
+  line-height: 3;
+}
+
+.hint_view_black_back{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background:rgba(0,0,0,0.8);
+}
+
+.hint_view_back{
+  width: 80vw;  
+  background: #fff;
+  margin-bottom: 10vw;
+  border-radius: 10px;
+}
+
+.hint_view_title{
+  border-radius: 10px 10px 0 0;
+  width: 77vw;
+  padding: 1.5vw;
+  text-align: center;
+  font-size: 100%;
+  color: #fff;
+  background: rgba(46, 152, 233, 1);
+}
+.hint_textrea_class{
+  width: 76vw;
+  height: 25vw;
+  padding: 2vw;
+  font-size: 80%;
+  max-lines: 2;
+}
+
+.hint_text_class{
+  width: 50%; 
+  padding: 2vw;
+  text-align: center;
+  border-top: 1px solid #B0B0B0; 
+}
+.text_hint{
+  width:90%;
+  margin-left: 5%; 
+  margin-top:10px;
+  color: #b0b0b0;
+  font-size: 70%;
+}
+
+
+
+.small_btn{
+  background:#E1DFE2;
+  border-radius: 4px;
+  color: #666666;
+  font-size: 80%;
+  padding: 2vw 4vw;
+}
+
+.small_btn_open{
+  background:rgb(45, 151, 231);
+  border-radius: 4px;
+  color: #FFF;
+  font-size: 80%;
+  padding: 2vw 4vw;
+}
+
+.small_btn_open:active{
+  background:rgb(31, 143, 230);
+  border-radius: 4px;
+  color: #FFF;
+  font-size: 80%;
+  padding: 2vw 4vw;
+}
+
+.scroll_back{
+  width: 100vw;
+  height: 70vh;
+  margin-top: 3vw;
+}
+
+.item_dev{
+  width: 84vw;
+  margin-left: 3vw;
+  margin-top: 3vw;
+  padding: 4vw 5vw;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow:  2px 3px 10px #666666;
+}
+
+.item_img{
+  width: 18vw;
+  height: 18vw;
+}
+
+.item_title{
+  font-size:90%;
+  color:#000;
+  font-weight:600
+}
+
+.item_hint{
+  color:#666666;
+  margin-left:5vw;
+  font-size:70%;
+}
+
+.checkbox{
+  margin-top: 3vw;
+  margin-left: 3vw;
+}

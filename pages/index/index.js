@@ -3,12 +3,22 @@ const app = getApp();
 var util = require("../../utils/util.js"); 
 var handler = require("handler.js");
 var timer = {};
+var menuToCmd = {};
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {  
+    imgswiperset: {        //swiper信息设置
+      indicator_dots: false,        //是否显示面板指示点
+      autoplay: false,               //是否自动切换
+      interval: 10000,                //自动切换时间间隔
+      duration: 200,                  //滑动动画时长
+      indicator_color: '#b0b0b0', //指示点颜色
+      indicator_active_color: 'rgb(19, 157, 236)',       //当前选中的指示点颜色
+      circular: false,                       //是否采用衔接滑
+    },
     msg:"",
     isShowDialog: false,     //是否显示弹窗
     statusinfo: { 
@@ -21,6 +31,8 @@ Page({
     sendtimes:0,
     servicelist:[],
     lastindex:"item0",
+    ismenuRund:false,//是否循环发送
+    customMen:[],//自定义控制菜单
     isRund:false,//是否正在循环发送消息
     menu:[
       { 
@@ -67,6 +79,7 @@ Page({
     if (app.globalData.issel && app.globalData.bleUtil != "") {
       var that = this;
       that.data.statusinfo.status = '连接中';
+      app.globalData.issel = false;
       appendLogs("连接设备中",that);
       that.setData({
         statusinfo: that.data.statusinfo
@@ -93,6 +106,7 @@ Page({
         appendLogs("接受到消息 " + res.value.strHexData,that); 
       });
     }
+    getMenuList(this);
   },
 
   /**
@@ -129,6 +143,36 @@ Page({
   onShareAppMessage: function() {
 
   },
+  menuCheckBocChange:function(res){
+    this.data.ismenuRund = res.detail.value;
+  },
+  gotoStop:function(res){
+    handler.stop(this); 
+  },
+  doSendItem:function(res){
+
+    if (app.globalData.bleUtil == "") {
+      showHintModal("未连接设备");
+      appendLogs("未连接设备",this);
+      return;
+    } 
+
+    if (this.data.write_id == '--') {
+      showHintModal("未选择可写服务");
+      appendLogs("未选择可写服务",this);
+      return;
+    }
+
+    var item = res.currentTarget.dataset.item;
+    var sendlist = getCMD(item);
+
+    if(!sendlist){
+      return;
+    } 
+
+    handler.sendCoustomList(sendlist,item,this);
+
+  },
   doClearData:function(res){
     this.setData({
       logs:[]
@@ -140,11 +184,7 @@ Page({
   },
   doRund:function(res){
     if(this.data.isRund){
-      handler.stop();
-      appendLogs("停止循环发送",this);
-      this.setData({
-        isRund:false
-      })
+      handler.stop(this); 
       return;
     }
     if (app.globalData.bleUtil == "") {
@@ -181,22 +221,13 @@ Page({
       appendLogs("需循环发送的内容为空",this);
       return;
     }
-    
-    var i = 0;
+     
 
     appendLogs("开始循环发送",this);
 
     this.setData({
       isRund:true
-    })
-
-    // timer = setInterval(function(res){
-    //   if(i > sendlist.length - 1){
-    //     i = 0;
-    //   }
-    //   sendBleMsg(sendlist[i],that);
-    //   i++;
-    // },sendtimes);
+    }) 
 
     handler.sendList(sendlist,sendtimes,that);
     
@@ -284,6 +315,38 @@ Page({
       servicelist
     })
   },
+  doShowMenu:function(res){
+    var item = res.currentTarget.dataset.item;
+    var index = res.currentTarget.dataset.index;
+    wx.showActionSheet({
+      itemList: ["编辑","删除"],
+      success:function(res) {
+        switch(res.tapIndex){
+          case 0:{
+            wx.navigateTo({
+              url: '../addsendbtn/addsendbtn?title=' + item ,
+            })
+          } 
+          break;
+          case 1:{
+            wx.showModal({
+              content:"确认删除按钮 " + item + ",删除后不可恢复",
+              success:function(res) {
+                if(res.confirm){
+                   app.globalData.menu.splice(index,1);
+                   wx.setStorageSync("menulist", app.globalData.menu);
+                   that.setData({
+                    customMen:app.globalData.menu
+                   })
+                }
+              }
+            })
+          }
+          break;
+        }
+      }
+    })
+  },
   doSelUuid:function(res){
     var item = res.currentTarget.dataset.item;
     var each =  res.currentTarget.dataset.each; 
@@ -346,7 +409,12 @@ Page({
     app.globalData.bleUtil.doRead();
     appendLogs("成功读取",this);
   },
-  appendLogs:appendLogs,
+  gotoAddSendBtn:function(res){
+    wx.navigateTo({
+      url: '../addsendbtn/addsendbtn',
+    })
+  },
+  appendLogs,
 })
 
 function appendLogs(info,that){
@@ -384,4 +452,34 @@ function sendBleMsg(msg,that) {
         return true;
       }
     }, false); 
+}
+
+function getMenuList(that){
+  if(app.globalData.menu){
+    that.setData({
+      customMen:app.globalData.menu
+    })
+    return;
+  }
+  let menulist = wx.getStorageSync('menulist');
+  if(!menulist){
+    menulist = [];
+  }
+  app.globalData.menu = menulist;
+  that.setData({
+    customMen:menulist
+  })
+}
+
+function getCMD(title){
+  if(menuToCmd[title]){
+    return menuToCmd[title];
+  }
+  let send = wx.getStorageSync(title);
+  if(!send){
+    util.showHintModal("不存在该条指令");
+    return;
+  }
+  menuToCmd[title] = send;
+  return send;
 }

@@ -164,23 +164,18 @@ function getChar(services) {
 
       data.serviceslist.push(services);
 
-      if (notify_id != null ) {
-        data.notifyServicweId = services.uuid;
-        data.notifyCharacteristicsId = notify_id; 
-        opennotify(notify_id, re);
-        console.log("选择notify_id:"  +  data.notifyCharacteristicsId );
-      }
-      if(write_id != null){
-        ata.writeServicweId = services.uuid;
-        data.writeCharacteristicsId = write_id;  
-      }
-      
-      if(read_id != null){ 
-        ata.readServicweId = services.uuid;
-        data.readCharacteristicsId = read_id;
-        readNotify(read_id,re);
-        console.log("选择read_id:"  +  data.readCharacteristicsId );
-      }
+      // if (notify_id != null ) {
+      //   data.notifyServicweId = services.uuid;
+      //   data.notifyCharacteristicsId = notify_id;  
+      // }
+      // if(write_id != null){
+      //   data.writeServicweId = services.uuid;
+      //   data.writeCharacteristicsId = write_id;  
+      // } 
+      // if(read_id != null){ 
+      //   data.readServicweId = services.uuid;
+      //   data.readCharacteristicsId = read_id; 
+      // }
     }
   })
 }
@@ -206,7 +201,7 @@ class bletool {
   }
 
   isCanWrite(){
-    return (data.writeServicweId || false) &&  (data.writeCharacteristicsId|| false);
+    return (data.writeServicweId || false) &&  (data.writeCharacteristicsId || false);
   }
 
   setReadUUID(serviceuuid, uuid,callback) {
@@ -508,6 +503,8 @@ class bletool {
       },
       fail: function (res) {
         console.log(res);
+        info.errCode = "1";
+        info.msg = "发送失败";
         if (typeof sendab == "function") {
           sendab(info);
         }

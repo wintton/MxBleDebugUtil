@@ -1,0 +1,40 @@
+<!--pages/addsendbtn/addsendbtn.wxml-->
+
+<!-- 修改窗口 -->
+<view hidden="{{!hintinfo.ishow}}" class="hint_view_black_back flex_column flex_center">
+	<view class="hint_view_back">
+		<view class="hint_view_title">{{hintinfo.title}}</view>
+		<view class="hint_textrea_class flex_row flex_vcenter flex_wrap">
+			<radio-group bindchange="checkboxChange" class="opera_sel_view_back">
+				<label class="checkbox" wx:for="{{items}}" wx:key="unqie">
+					<radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+				</label>
+			</radio-group>
+			<view class="flex_row flex_vcenter" style="font-size:80%;width:100%;">
+				<text>{{operToStr[opera]}}</text>
+				<input bindinput="getInputValue" style="padding:2vw;border-bottom:1px solid #CCC;width:60%;" placeholder="输入发送内容或延迟时间"></input>
+				<text>{{unitToStr[opera]}}</text>
+			</view>
+		</view>
+		<view class="flex_row flex_space">
+			<view catchtap="doCanle" class="hint_text_class flex_column flex_center">{{hintinfo.canletext}}</view>
+			<view catchtap="doComfrim" class="hint_text_class flex_column flex_center" style="border-left: 1px solid #B0B0B0;">{{hintinfo.confirmtext}}</view>
+		</view>
+	</view>
+</view>
+
+<view class="send_back"> 
+	<input disabled="{{isedit}}" value="{{title}}" bindinput="doGetTitle" style="width:100%;border-bottom:1px solid #CCC;padding:2vw 0;font-size:90%;" placeholder="请输入功能名称"></input>
+	<view class="hint_title">设置功能内容</view>
+	<view class="flex_column flex_vcenter">
+		<view wx:for="{{menu}}" wx:key="index" class="flex_row flex_vcenter value_back flex_space">
+			<text>{{item.title}}</text>
+			<button bindtap="doDelete" data-index="{{index}}" type="warn" size="mini" style="font-size:80%;margin:0;background:red;color:#fff">删除</button>
+		</view>
+		<view bindtap="doShowDiaolog" class="flex_row flex_center value_back">
+			<text>点击添加操作</text>
+		</view>
+	</view> 
+	<button bindtap="doSave" data-type="write" class="btn_normal" style="margin-top:5vw;width:90vw;">保存</button>
+</view>
+<view style="width:100vw;height:2vh"></view>

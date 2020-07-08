@@ -235,3 +235,8 @@
   height: 0;
   color: transparent;
 }
+
+.swiper_class{
+  width: 100vw; 
+  height: 60vh; 
+}

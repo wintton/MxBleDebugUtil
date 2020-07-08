@@ -21,7 +21,7 @@
 <view class="bottom_fix_show flex_row flex_space flex_vcenter">
   <text bindtap='refresh' class='bottom_text'>刷新</text> 
   <button hidden="{{selmac != ''}}" class="btn_disable">连接</button>
-  <button bindtap='doback' hidden="{{selmac == ''}}" class="btn_normal">连接</button>
+  <button bindtap='doback' hidden="{{selmac == ''}}" class="btn_normal" style="margin:0">连接</button>
 </view>
 
 <view style="width:100vw;height:10vh;"></view>

@@ -26,6 +26,7 @@
  		</scroll-view>
  	</view>
  </view>
+
  <view class='item_view_back felx_column flex_end'>
  	<view bindtap='selBle' class='flex_row flex_vcenter'>
  		<view class='item_title_name'>{{statusinfo.status}}</view>
@@ -38,29 +39,54 @@
  	<button bindtap="doShowSelService" data-type="reno" class="btn_normal" style="width:48%">选择读/通知服务</button>
  </view>
 
- <view class="flex_column"  style="margin:5vw;">
-  <text class="dialog_text">当前写服务:{{write_id}}</text>
-  <text class="dialog_text">当前读/通知服务：{{notifty_id}}</text>
+ <view class="flex_column" style="margin:5vw;">
+ 	<text class="dialog_text">当前写服务:{{write_id}}</text>
+ 	<text class="dialog_text">当前读/通知服务：{{notifty_id}}</text>
  </view>
 
- <view class="send_back">
- 	<checkbox-group bindchange="checkboxChange">
- 		<view wx:for="{{menu}}" wx:key="index" style="padding:3vw 0" class="flex_row flex_vcenter flex_space">
- 			<checkbox value="{{index}}" disabled="{{isRund}}"  checked="{{item.issel}}"></checkbox>
- 			<input placeholder="输入发送内容" disabled="{{isRund}}" bindinput="doGetInput" data-index="{{index}}" style="width:50vw;border-bottom:1px solid #CCC"></input>
- 			<button bindtap="doSendValue" disabled="{{isRund}}"  data-index="{{index}}" class="btn_normal" style="width:25vw; ">发送</button>
+ <swiper class='swiper_class' indicator-dots="{{imgswiperset.indicator_dots}}" autoplay="{{imgswiperset.autoplay}}" interval="{{imgswiperset.interval}}" duration="{{imgswiperset.duration}}" indicator-color='{{imgswiperset.indicator_color}}' indicator-active-color='{{imgswiperset.indicator_active_color}}' circular='{{imgswiperset.circular}}'>
+ 	<swiper-item>
+ 		<view class="send_back">
+ 			<checkbox-group bindchange="checkboxChange">
+ 				<view wx:for="{{menu}}" wx:key="index" style="padding:3vw 0" class="flex_row flex_vcenter flex_space">
+ 					<checkbox value="{{index}}" disabled="{{isRund}}" checked="{{item.issel}}"></checkbox>
+ 					<input placeholder="输入发送内容" disabled="{{isRund}}" bindinput="doGetInput" data-index="{{index}}" style="width:50vw;border-bottom:1px solid #CCC"></input>
+ 					<button bindtap="doSendValue" disabled="{{isRund}}" data-index="{{index}}" class="btn_normal" style="width:25vw; ">发送</button>
+ 				</view>
+ 			</checkbox-group>
+ 			<view style="padding:3vw 0" class="flex_row flex_vcenter flex_space">
+ 				<input bindinput="doGetSendTimes" type="number" style="width:50vw;border-bottom:1px solid #CCC" placeholder="每次发送延时(毫秒)"></input>
+ 				<button bindtap="doRund" class="btn_normal" style="width:30vw; ">{{isRund?"停止循环":"循环发送"}}</button>
+ 			</view>
+ 			<view style="font-size:80%;color:#000;margin-top:3vw">温馨提示：左滑可进入自定义功能区</view>
  		</view>
- 	</checkbox-group>
- 	<view style="padding:3vw 0" class="flex_row flex_vcenter flex_space">
- 		<input bindinput="doGetSendTimes" type="number" style="width:50vw;border-bottom:1px solid #CCC" placeholder="每次发送延时(毫秒)"></input>
- 		<button bindtap="doRund" class="btn_normal" style="width:30vw; ">{{isRund?"停止循环":"循环发送"}}</button>
- 	</view>
- </view>
+ 	</swiper-item>
+ 	<swiper-item>
+ 		<scroll-view scroll-y class="send_back" style="height:48vh">
+ 			<view style="padding:2vw;font-size:100%;color:#000;font-weight:600">自定义功能区</view>
+			<view class="flex_row flex_space flex_vcenter">
+			  <checkbox-group disabled="{{isRund}}" bindchange="menuCheckBocChange"  >
+					<label class="checkbox"  >
+						<checkbox value="1" />循环发送
+					</label>
+				</checkbox-group> 
+				<button bindtap="gotoStop" class="btn_normal" hidden="{{!isRund}}" style="width:48%;margin:0">停止发送</button>
+			</view>
+		
+ 			<view class="flex_row flex_start flex_wrap flex_space" style="margin-top:5vw">
+ 				<button bindtap="doSendItem" catchlongtap="doShowMenu"  data-index="{{index}}"  wx:for="{{customMen}}" disabled="{{isRund}}" data-item="{{item}}" wx:key="index" class="btn_normal" style="width:48%">{{item}}</button>
+ 				<button bindtap="gotoAddSendBtn" class="btn_normal" disabled="{{isRund}}" style="width:48%;margin:0">添加</button>
+ 			</view>
+			 	<view style="font-size:80%;color:#000;margin-top:3vw">温馨提示：右滑可返回发送区，长按可编辑或删除</view>
+ 		</scroll-view>
+ 	</swiper-item>
+ </swiper>
+
  <view class="flex_row flex_vcenter" style="margin-top:3vw;">
  	<button bindtap="doClearData" class="btn_normal" style="width:30vw; ">清除数据</button>
  	<button bindtap="doReadValue" class="btn_normal" style="width:30vw; ">读取数据</button>
  </view>
- <scroll-view scroll-y class="send_back" style="height:30vh;" scroll-into-view="{{lastindex}}" >
+ <scroll-view scroll-y class="send_back" style="height:30vh;" scroll-into-view="{{lastindex}}">
  	<view class="flex_column">
  		<text id="item{{index}}"  wx:for="{{logs}}" wx:key="index" style="font-size:80%;color:#000;">{{item}}</text>
  	</view>
