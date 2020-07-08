@@ -9,7 +9,8 @@
     "pages/numberturn/numberturn",
     "pages/timeturn/timeturn",
     "pages/codeturn/codeturn",
-    "pages/MD5/MD5"
+    "pages/MD5/MD5",
+    "pages/addsendbtn/addsendbtn"
   ],
   "window": {
     "backgroundTextStyle": "light",

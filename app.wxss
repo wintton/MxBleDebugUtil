@@ -35,6 +35,8 @@ page{
   justify-content: center;
 }
 
+
+
 .flex_wrap {
   flex-wrap: wrap;
 }
@@ -49,6 +51,10 @@ page{
 
 .flex_end {
   justify-content: flex-end;
+}
+
+.flex_start {
+  justify-content: flex-start;
 }
 
 .border_bottom_class {
