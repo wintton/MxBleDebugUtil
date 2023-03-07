@@ -1,0 +1,38 @@
+<view class='item_view_back felx_column flex_end'>
+  <view bindtap='selBle' class='flex_row flex_vcenter'>
+    <view class='item_title_name'>{{status}}</view> 
+  </view>
+</view> 
+<form bindsubmit="doOperaConnect">
+  <view class="send_back flex_column">
+    <input placeholder="WSS网址" disabled="{{isConnect}}" name="url"  style="padding: 2vw 0;border-bottom:1px solid #CCC"></input> 
+    <view class="flex_row flex_vcenter flex_end">
+      <button form-type="submit" class="btn_normal" style="width:25vw;margin-top:2vw;">{{isConnect?"断开":"连接"}}</button> 
+    </view>  
+  </view> 
+</form>
+
+<view class="send_back">
+  <checkbox-group bindchange="checkboxChange">
+    <view wx:for="{{menu}}" wx:key="index" style="padding:3vw 0" class="flex_row flex_vcenter flex_space">
+      <checkbox value="{{index}}" disabled="{{isRund}}" checked="{{item.issel}}"></checkbox>
+      <input placeholder="输入发送内容" disabled="{{isRund}}" bindinput="doGetInput" data-index="{{index}}" style="width:50vw;border-bottom:1px solid #CCC"></input>
+      <button bindtap="doSendValue" disabled="{{isRund}}" data-index="{{index}}" class="btn_normal" style="width:25vw; ">发送</button>
+    </view>
+  </checkbox-group>
+  <view style="padding:3vw 0" class="flex_row flex_vcenter flex_space">
+    <input bindinput="doGetSendTimes" type="number" style="width:50vw;border-bottom:1px solid #CCC" placeholder="每次发送延时(毫秒)"></input>
+    <button bindtap="doRund" class="btn_normal" style="width:30vw; ">{{isRund?"停止循环":"循环发送"}}</button>
+  </view>
+ </view>
+
+<view class="flex_row flex_vcenter" style="margin-top:3vw;">
+  <button bindtap="doClearData" class="btn_normal" style="width:30vw; ">清除数据</button> 
+</view>
+<scroll-view scroll-y class="send_back" style="height:30vh;" scroll-into-view="{{lastindex}}">
+  <view class="flex_column">
+    <text id="item{{index}}" wx:for="{{logs}}" wx:key="index" style="font-size:80%;color:#000;">{{item}}</text>
+  </view>
+</scroll-view>
+
+<view style="width:100vw;height:5vh;"></view>

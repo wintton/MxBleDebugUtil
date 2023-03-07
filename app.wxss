@@ -174,7 +174,7 @@ page{
 }
 
 .btn_yellow_class:active{
-  background:rgb(5, 100, 207);
+  background:rgb(5, 94, 196);
 }
 
 .btn_yellow_class_dissable{

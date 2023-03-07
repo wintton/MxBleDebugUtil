@@ -27,6 +27,7 @@ Page({
     write_id:"--",
     notifty_id:"--",
     title:"选择服务",
+    ishex:true,
     logs:[],
     sendtimes:0,
     servicelist:[],
@@ -275,7 +276,14 @@ Page({
       appendLogs("不能发送空值",this);
       return;
     }
-    sendBleMsg(menu[index].value,this);
+    sendBleMsg(menu[index].value,this,false);
+  },
+  checkBoxHex:function(res){
+    console.log(res);
+    let value = res.detail.value;
+    this.setData({
+      ishex:value
+    })
   },
   doShowSelService:function(res){
     var type = res.currentTarget.dataset.type;
@@ -441,7 +449,7 @@ function showHintModal(msg) {
   })
 }
  
-function sendBleMsg(msg,that) {
+function sendBleMsg(msg,that,ishex) {
   appendLogs("发送数据 " + msg + " 中",that); 
     app.globalData.bleUtil.sendMsg(msg, function(res) {
       if (res.errCode == 0) {
@@ -451,7 +459,7 @@ function sendBleMsg(msg,that) {
         appendLogs("发送数据 " + msg + " 失败," + res.msg,that);
         return true;
       }
-    }, false); 
+    }, ishex); 
 }
 
 function getMenuList(that){

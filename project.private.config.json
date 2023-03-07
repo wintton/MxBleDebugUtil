@@ -1,0 +1,52 @@
+{
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "连接蓝牙",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "时间转换",
+          "pathName": "pages/timeturn/timeturn",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "贪吃蛇",
+          "pathName": "pages/eatshake/eatshake",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "历史记录",
+          "pathName": "pages/advicerecord/advicerecord",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "指南针",
+          "pathName": "pages/compass/compass",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "wifi直连",
+          "pathName": "pages/autowifi/autowifi",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "libVersion": "2.18.1",
+  "projectname": "smartBleConnect",
+  "setting": {
+    "compileHotReLoad": false
+  }
+}

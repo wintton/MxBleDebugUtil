@@ -1,0 +1,25 @@
+<!--pages/eatshake/eatshake.wxml-->
+
+<view style="width:100vw;height:50vh" class="flex_column flex_center">
+  <canvas canvas-id="shake" style="width:70vw;height:70vw;background:white;"> </canvas>
+</view>
+
+<view style="margin-top:5vw" class="flex_row flex_vcenter flex_wrap" style="width:80vw;margin-left:10vw;">
+  <button wx:for="{{btnlist}}" data-index="{{index}}" bindtap="doGoToOpera" data-value="{{item.value}}" wx:key="unie" class="btn_class" style="width:45%;margin-left:2.5%">{{item.name}}
+  </button>
+
+  <view style="margin-top:5vh" class="flex_column">
+
+    <view wx:for="{{dirlist}}" wx:key="data" style="width: 80vw;">
+      <view wx:if="{{item.data}}" class="flex_row flex_vcenter flex_space">
+        <button wx:for="{{item.data}}" wx:for-item="each" wx:for-index="i" data-index="{{i}}" bindtap="doGoToOpera" data-value="{{each.value}}" wx:key="unie" class="btn_class" style="width:35vw;margin-left:2.5%;">{{each.name}}
+        </button>
+      </view>
+      <view wx:else class="flex_row flex_center" style="width: 80vw;margin-top: 2vw;"> 
+        <button  data-index="{{index}}" bindtap="doGoToOpera" data-value="{{item.value}}"  class="btn_class" style="width:35vw;margin:0;">{{item.name}}
+        </button>
+      </view>
+    </view>
+
+  </view>
+</view>

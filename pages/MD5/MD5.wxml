@@ -1,7 +1,0 @@
-<!--pages/MD5/MD5.wxml--> 
-<view class="flex_column flex_center" style="font-size:80%;">
-  <input  bindinput="doGetValue" placeholder="请输入需要加密的值"></input>
-  <textarea class="advice_tear" value="{{lockvalue}}" placeholder="等待输入显示结果" disabled></textarea>  
-  <image catchtap="doCopyNumber" data-value="{{lockvalue}}" src="/images/ic_copy.png" style="width:6vw;height:6vw;position:absolute;right:9%;top:32%" mode="aspectFit"></image>
-</view>
-

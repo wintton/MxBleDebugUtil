@@ -10,7 +10,7 @@ Page({
         img:"/images/ic_ble.png",
         name:"蓝牙调试",
         url:"../selble/selble"
-      },
+      }, 
       {
         img:"/images/ic_number.png",
         name:"数字转换",
@@ -27,9 +27,14 @@ Page({
         url:"../codeturn/codeturn"
       },
       {
-        img:"/images/ic_lock.png",
-        name:"MD5加密",
-        url:"../MD5/MD5"
+        img:"/images/ic_shake.png",
+        name:"贪吃蛇",
+        url:"../eatshake/eatshake"
+      },
+      {
+        img:"/images/ic_compass.png",
+        name:"指南针",
+        url:"../compass/compass"
       },
       {
         img:"/images/id_edit.png",
@@ -41,7 +46,13 @@ Page({
         name:"关于我们",
         url:"../aboutus/aboutus"
       }
-    ]
+    ] 
+    // ,
+    //   {
+    //     img:"/images/ic_lock.png",
+    //     name:"MD5加密",
+    //     url:"../MD5/MD5"
+    //   }
   },
 
   /**

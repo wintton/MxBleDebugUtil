@@ -1,11 +1,22 @@
-//app.js
+//app.js 
 App({
   onLaunch: function () {
+   
+    wx.cloud.init({
+      env: 'cloud1-4gt2aqbg17c46b58',
+      traceUser: true,
+    })
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.globalData.width = res.windowWidth;
+        that.globalData.height = res.windowHeight;
+      },
+    })
     // 登录
     wx.login({
       success: res => {
@@ -34,6 +45,9 @@ App({
     })
   },
   globalData: {
+    appid:"wx7c38366457c1c9da",
+    width: 0,
+    height: 0,
     userInfo: null,
     selble:"",   //所选择蓝牙的mac
     bleUtil:"",     //蓝牙助手

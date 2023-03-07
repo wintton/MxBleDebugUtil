@@ -6,7 +6,7 @@
 			<text style="margin-left:58vw">▼</text>
 		</picker>
 	</view>
-	<input bindinput="doGetInput"   value="{{needturn}}" class="input_class" placeholder="请输入需要转换的值"></input>
+	<input bindinput="doGetInput" type="number"  value="{{needturn}}" class="input_class" placeholder="请输入需要转换的值"></input>
 	<view class="input_class flex_row flex_space">
 		<picker bindchange="bindPickerChangeO" value="{{oindex}}" range="{{array}}" range-key="name"> 
 			<text>{{array[oindex].name}}</text>

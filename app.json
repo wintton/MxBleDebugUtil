@@ -9,8 +9,11 @@
     "pages/numberturn/numberturn",
     "pages/timeturn/timeturn",
     "pages/codeturn/codeturn",
-    "pages/MD5/MD5",
-    "pages/addsendbtn/addsendbtn"
+    "pages/addsendbtn/addsendbtn",
+    "pages/eatshake/eatshake",
+    "pages/advicerecord/advicerecord",
+    "pages/tcpdebug/tcpdebug",
+    "pages/compass/compass" 
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -19,5 +22,8 @@
     "navigationBarTextStyle": "black"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "requiredPrivateInfos": [
+    "getFuzzyLocation"
+  ]
 }

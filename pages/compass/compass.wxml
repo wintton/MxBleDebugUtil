@@ -1,0 +1,26 @@
+<!--pages/compass/compass.wxml-->
+<view style="margin-left:5vw;margin-top: 5vw;">
+  当前方向：{{direction}}
+</view>
+<view class="flex_column flex_center">
+
+    <view class="compass_back flex_column flex_center">
+
+        <view class="compass_back_content flex_column flex_space" style="align-items: center;">
+          <text>N/北</text>
+          <text>S/南</text>
+        </view>
+        
+        <view class="compass_back_content flex_row flex_space" style="align-items: center;">
+          <text>W/西</text>
+          <text>E/东</text>
+        </view>
+
+        <view class="flex_column flex_center" style="transform: rotate({{direction || 0}}deg);">
+           <view class="compass_top"></view>
+           <view class="compass_bottom"></view>
+        </view>
+    
+    </view>
+
+</view>

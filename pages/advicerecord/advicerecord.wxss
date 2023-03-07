@@ -1,0 +1,20 @@
+/* pages/advicerecord/advicerecord.wxss */
+.item_back{
+  width: 80vw;
+  margin-left: 5vw;
+  padding: 5vw;
+  background: #ffffff;
+  margin-top: 5vw;
+  border-radius: 5px; 
+}
+
+.item_title{
+  font-size: 18px; 
+  color: #161616;
+}
+
+.item_content{ 
+  font-size: 13px; 
+  color: #161616; 
+  margin-top: 3px;
+}

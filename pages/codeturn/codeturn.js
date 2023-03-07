@@ -103,6 +103,12 @@ Page({
 })
 
 function refreshValue(value,that){
+  if(!value){
+    that.setData({
+      turnvalue:""
+    })
+    return;
+  }
   let index = that.data.index;
   let oindex = that.data.oindex;
   var array = that.data.array;
@@ -111,19 +117,20 @@ function refreshValue(value,that){
   let end = array[oindex].value;
 
   let strs = value.split("");
-
-  for(var x in strs){
-    if(!parseInt(strs[x],start)){
-      that.setData({
-        turnvalue:"错误的数据"
-      })
-      return;
+  strs = strs.filter(function(a){
+    if(a >= start){
+      return true;
     }
-  }
-  
+    return false;
+  }); 
+  if(strs.length > 0){
+    that.setData({
+      turnvalue:"错误的数据"
+    })
+    return;
+  } 
 
-  let result = turn(value,start,end); 
-
+  let result = turn(value,start,end);  
   if(result && result != 0){
     that.setData({
       turnvalue:result

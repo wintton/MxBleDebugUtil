@@ -1,0 +1,32 @@
+/* pages/compass/compass.wxss */
+.compass_back{
+  width: 70vw;
+  height: 70vw;
+  border-radius: 50%;
+  border: 10px solid dodgerblue;
+  margin-top: 10vw;
+}
+
+.compass_back_content{
+  width: 65vw;
+  height: 65vw;
+  font-size: 17px;
+  color: dodgerblue;
+  position:absolute;
+}
+
+.compass_top{
+  width: 0; 
+  height: 0; 
+  border-left: 15px solid transparent; 
+  border-right: 15px solid transparent; 
+  border-bottom: 23vw solid red;
+}
+
+.compass_bottom{
+  width: 0; 
+  height: 0; 
+  border-left: 15px solid transparent; 
+  border-right: 15px solid transparent; 
+  border-top: 23vw solid #0204F7;
+}

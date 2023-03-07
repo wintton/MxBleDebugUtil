@@ -418,6 +418,10 @@ class bletool {
         timeout: 10000,
         success: function (res) {
           wx.hideLoading();
+          wx.setBLEMTU({
+            deviceId: id,
+            mtu: 500,
+          })
           data.connectStatus = true;
           data.connectedDeviceId = id;
           wx.showToast({

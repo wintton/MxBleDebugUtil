@@ -1,0 +1,9 @@
+<!--pages/advicerecord/advicerecord.wxml-->
+<view wx:for="{{datalist}}" wx:key="index" class="item_back flex_column">
+  <text class="item_title">意见反馈</text>
+  <text class="item_content" style="margin-top: 5vw;">{{item.content || "内容内容内容内容内容内容内容内容内容内容内容"}}</text>
+  <text class="item_content">创建时间：{{item.createtime || "--"}}</text>
+  <text class="item_content">当前状态：{{item.statestr || "--"}}</text>
+  <text  wx:if="{{item.retime}}" class="item_content">处理时间：{{item.retime || "--"}}</text>
+  <text wx:if="{{item.reconnect}}" class="item_content">反馈内容：{{item.reconnect || "--"}}</text>
+</view>

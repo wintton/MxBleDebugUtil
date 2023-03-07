@@ -1,5 +1,5 @@
-var rootDocment = 'https://ware.mxspace.club/waresys';
-var rootDocmentRoot = 'https://ware.mxspace.club/waresys';
+var rootDocment = 'https://16p252413p.zicp.fun';
+var rootDocmentRoot = rootDocment + '/waresys';
 
 const formatTime = date => {
   const year = date.getFullYear()
@@ -60,7 +60,7 @@ function requestPost(url, data, cb) {
     data: data,
     method: 'post',
     header: {
-      'content-type': 'application/x-www-form-urlencoded'
+      'content-type': 'application/json'
     },
     success: function (res) {
 

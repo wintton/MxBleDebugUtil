@@ -10,3 +10,11 @@
   height: 30vh;
   font-size: 90%;
 }
+
+.text_info{
+  width: 90vw;
+  margin-left: 5vw;
+  font-size: 14px;
+  color: dodgerblue;
+  margin-top: 4vw;
+}

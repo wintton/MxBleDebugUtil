@@ -1,0 +1,19 @@
+/* pages/eatshake/eatshake.wxss */
+
+.btn_class,
+.btn_class:active {
+  width: 90vw;
+  margin-top: 10px;
+  margin-left: 5vw;
+  font-size: 90%;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.btn_class {
+  background: rgb(75, 208, 212);
+}
+
+.btn_class:active {
+  background: rgb(16, 186, 192);
+}
