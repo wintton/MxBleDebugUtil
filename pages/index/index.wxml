@@ -85,8 +85,18 @@
  		</scroll-view>
  	</swiper-item>
  </swiper>
-
- <view class="flex_row flex_vcenter" style="margin-top:3vw;">
+ <view style="margin-left: 5vw;">
+  <checkbox-group  bindchange="hexChange"  >
+      <label class="checkbox"  >
+        <checkbox value="{{hexsend}}" />HEX发送
+      </label>
+    </checkbox-group> 
+</view>
+ <view class="flex_row flex_vcenter" style="margin-left: 5vw;">  
+  <input bindinput="changeMTUSet" type="number" value="{{mtuValue}}" style="width: 50vw;border-bottom: 1px solid #CCC;" placeholder="MTU值(22,512)byte" />
+  <button bindtap="doSendMtu" class="btn_normal" style="width:30vw; ">设置MTU</button>
+ </view>
+ <view class="flex_row flex_vcenter" style="margin-top:5px;">
  	<button bindtap="doClearData" class="btn_normal" style="width:30vw; ">清除数据</button>
  	<button bindtap="doReadValue" class="btn_normal" style="width:30vw; ">读取数据</button>
  </view>

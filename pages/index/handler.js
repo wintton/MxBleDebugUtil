@@ -3,12 +3,25 @@ var util = require("../../utils/util.js");
 const app = getApp(); 
 var isSend = false;
 
+function strToHexCharCode(str) {
+  if (str === "")
+    return "";
+  var hexCharCode = [];
+  hexCharCode.push("0x");
+  for (var i = 0; i < str.length; i++) {
+    hexCharCode.push((str.charCodeAt(i)).toString(16));
+  }
+  return hexCharCode.join("");
+}
 //同步请求 
 /**
  * request请求，GET  默认header
  */
 function sendBleMsg(data,that) {
   that.appendLogs("发送数据 " + data + " 中",that); 
+  if(that.data.hexsend){
+    data = strToHexCharCode(data);
+  }
   return new Promise((success, fail) => {  
      var isSuccess = false;
       app.globalData.bleUtil.sendMsg(data, function (res) {

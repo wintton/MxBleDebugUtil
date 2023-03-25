@@ -68,8 +68,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-  doSubmit: function (res) {
-    console.log(res);
+  doSubmit: function (res) { 
     var content = res.detail.value.content;
     if (content == "") {
       showHintModal("内容不能为空哦");
@@ -132,13 +131,15 @@ function submiterrorWx(msg, that) {
   wx.showLoading({
     title: '提交中',
   })
+  let randID =  new Date().getTime() + "" + parseInt(Math.random() * 10000);
   let params = {
     "msgtype": "text",
     "text": {
-      "content": "蓝牙网络调试助手\n收到一条意见反馈\n内容为：" + msg
+      "content": "蓝牙网络调试助手\n收到一条意见反馈\n内容为：" + msg + "\n反馈ID：" + randID
     }
   }
-  requestPost("/cgi-bin/webhook/send?key=77f92300-9dd4-4f40-a421-79be27d44169",params)
+  // let url = "/cgi-bin/webhook/send?key=77f92300-9dd4-4f40-a421-79be27d44169";
+  requestPost(url,params)
   .then(res => {
     wx.hideLoading({
       success: (res) => {
@@ -151,47 +152,11 @@ function submiterrorWx(msg, that) {
 
         })
       });
+      wx.setStorageSync('adviceID', randID);
     } else {
       showHintModal("很抱歉，提交失败，请稍后再试吧");
     }
      
   })
 }
-
-function submiterror(msg, that) {
-  wx.showLoading({
-    title: '提交中',
-  })
-  var data = {
-    opertype:'add',
-    userphone: "111",
-    openid: "1111",
-    errortype: 2,
-    errormsg: msg,
-  };
-  util.requestPost("/error_rep.jsp", data, function (res) {
-    console.log(res.data);
-    wx.hideLoading();
-    if (res.data.code == 0) {
-    
-      showHintModalCall("提交成功，非常感谢您对我们的建议，我们会不断优化，及时解决您的问题，祝您生活愉快", function (res) {
-        wx.navigateBack({
-
-        })
-      });
-    } else {
-      showHintModal("很抱歉，提交失败，请稍后再试吧");
-    }
-  });
-}
-//发送通知给商家
-function sendmsgToShopUser(phone, content) {
-
-  var data = {
-    phone: phone,
-    content: content,
-  };
-  util.requestGet_Root("/baseapi/send_temple_msg.jsp", data, function (res) {
-    console.log(res.data);
-  });
-}
+  

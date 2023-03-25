@@ -35,6 +35,7 @@ Page({
     ismenuRund:false,//是否循环发送
     customMen:[],//自定义控制菜单
     isRund:false,//是否正在循环发送消息
+    hexsend:false,
     menu:[
       { 
         value:"",
@@ -100,6 +101,12 @@ Page({
           that.setData({
             statusinfo: that.data.statusinfo
           })
+          wx.onBLEMTUChange(function (res) {
+             that.setData({
+              mtuValue:res.mtu
+             })
+             thiat.data.inputMtu = res.mtu;
+          })
         }
       }, function(res) {
         //接收到数据回调 
@@ -150,8 +157,43 @@ Page({
   gotoStop:function(res){
     handler.stop(this); 
   },
-  doSendItem:function(res){
-
+  hexChange(res){ 
+    this.data.hexsend = res.detail.value[0];
+  },
+  changeMTUSet(res){
+    this.data.inputMtu = res.detail.value;
+  },
+  doSendMtu(res){
+    let that = this;
+    if (app.globalData.bleUtil == "") {
+      showHintModal("未连接设备");
+      appendLogs("未连接设备",this);
+      return;
+    }  
+    if(!this.data.inputMtu || this.data.inputMtu < 22 || this.data.inputMtu > 512){
+      showHintModal("MTU值格式不正确");
+      appendLogs("MTU值格式不正确",this);
+      return;
+    }
+    if (this.data.write_id == '--') {
+      showHintModal("未选择可写服务");
+      appendLogs("未选择可写服务",this);
+      return;
+    }
+    wx.setBLEMTU({
+      deviceId:app.globalData.bleUtil.deviceId,
+      mtu:that.data.inputMtu * 1,
+      success:() => {
+        showHintModal("MTU设置成功");
+        appendLogs("MTU设置成功",that);
+      },
+      fail:res => {
+        showHintModal("MTU设置失败");
+        appendLogs("MTU设置失败",that);
+      }
+    })
+  },
+  doSendItem:function(res){ 
     if (app.globalData.bleUtil == "") {
       showHintModal("未连接设备");
       appendLogs("未连接设备",this);
