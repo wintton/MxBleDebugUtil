@@ -138,7 +138,6 @@ function submiterrorWx(msg, that) {
       "content": "蓝牙网络调试助手\n收到一条意见反馈\n内容为：" + msg + "\n反馈ID：" + randID
     }
   }
-  // let url = "/cgi-bin/webhook/send?key=77f92300-9dd4-4f40-a421-79be27d44169";
   requestPost(url,params)
   .then(res => {
     wx.hideLoading({
